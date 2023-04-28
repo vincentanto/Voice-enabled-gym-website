@@ -1,0 +1,52 @@
+Alan AI Button Commands:
+Mute yourself          : Disables your microphone, so that others can't hear you.
+Press headphone Button : Toggles your microphone on/off.
+
+Common Navigation Commands:
+Go back    : Navigates to the previous page in your browsing history.
+Go forward : Navigates to the next page in your browsing history.
+Reload     : Reloads the current page.
+
+Commands on Home Page:
+Go to home page         : Navigates to the homepage of the website.
+Go to program           : Navigates to the program section of the website.
+Go to personal training : Navigates to the personal training section of the website.
+Go to pricing           : Navigates to the pricing section of the website.
+Go to flex muscle       : Navigates to the flex muscle section of the website.
+Go to cardio exercise   : Navigates to the cardio exercise section of the website.
+Go to shoulder workouts : Navigates to the shoulder workouts section of the website.
+Go to weight lifting    : Navigates to the weight lifting section of the website.
+
+Commands in Flex:
+Open first card  : Opens the first card in the flex section.
+Open second card : Opens the second card in the flex section.
+Open third card  : Opens the third card in the flex section.
+Open fourth card : Opens the fourth card in the flex section.
+Open fifth card  : Opens the fifth card in the flex section.
+
+Commands is Pricing Page:
+purchase basic package   : Redirect to the basic package payment page
+purchase premium package : Redirect to the basic package payment page
+purchase diamond package : Redirect to the basic package payment page
+
+Form Filling Commands:
+To calculate BMI:
+My height is 180 : Enter your height in centimeters.
+My weight is 70  : Enter your weight in kilograms.
+
+To fill contact form:
+My name is Tony               : Enter your full name.
+My phone number is 1001001000 : Enter your phone number.
+
+Common queries:
+What equipment do you have?
+What is your cancellation policy?
+What kind of classes do you offer?
+What are some good warm-up exercises?
+How long should I rest between sets?
+Whats the best way to cool down after a workout?
+What are some good warm-up exercises?
+What are some good arm exercises?
+How often should I do arm workouts?
+What are some common mistakes to avoid when doing arm exercises?
+How can I modify arm exercises to make them more challenging?

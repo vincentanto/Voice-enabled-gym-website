@@ -1,0 +1,350 @@
+onUserEvent((p, e) => {
+    if (e.event == 'micPermissionPrompt') {
+        p.play('Hi, this is Alan, your voice assistant!');
+        p.play('To navigate through the pages with voice, click Allow microphone and say: Go to the home page');
+    }
+});
+
+intent('Show message', p => {
+  p.play('This is a sample message.');
+  p.addNotification({text: 'Please wait while we process your request...'});
+});
+
+
+// Footer form filling
+const phoneNumber = "\\d{3}-\\d{3}-\\d{4}$";
+intent(`My phone number is $(PHONE* ${phoneNumber})`,`My contact number is $(PHONE* ${phoneNumber})`,`My phone line is $(PHONE* ${phoneNumber})`, p => {
+    p.play({command: "getPhone", text: p.PHONE.value}); 
+    p.play(`Your number is ${p.PHONE.value}, thanks for sharing`); 
+});
+
+intent('My name is $(NAME)','I go by the name $(NAME)','name is $(NAME)', p => {
+    p.play({command: "getName", text: p.NAME.value});
+    p.play(`Thank you, ${p.NAME.value}`);
+});
+
+intent('send my contact details','send contact details','send details','send detail','send contact', p=>{
+    p.play({command: "Send details"});
+    p.play(`Sending Details`);
+});
+
+
+// BMI form filling
+const height = "\\d{3}$";
+intent(`my height is $(PHONE* ${height})`,`height is $(PHONE* ${height})`,`I am $(PHONE* ${height}) tall`,`I stand at $(PHONE* ${height}) high`,`I measure $(PHONE* ${height}) in height`, p => {
+    p.play({command: "getHeight", text: p.PHONE.value}); 
+    p.play(`Your height is ${p.PHONE.value}, thanks for sharing`); 
+});
+const weight = "\\d{2}$";
+intent(`My weight is $(PHONE* ${weight})`,`weight is $(PHONE* ${weight})`,`I weigh $(PHONE* ${weight})`,`My mass is $(PHONE* ${weight})`,`My body weight is $(PHONE* ${weight})`,`My weight measurement is $(PHONE* ${weight})`, p => {
+    p.play({command: "getWeight", text: p.PHONE.value}); 
+    p.play(`Your weight is ${p.PHONE.value}, thanks for sharing`); 
+});
+
+intent('calculate BMI','calculate my BMI','send my BMI','BMI calculate', p=>{
+    p.play({command: "Calculating BMI"});
+    p.play(`Calculating BMI`);
+});
+
+// Common navigation command
+intent('Go to home page', 'homepage', 'home page ', 'go home page', 'go homepage' ,'Return to homepage', 'Visit the homepage', 'Navigate to the homepage', 'Go back to the homepage', 'Return to the main page', 'Visit the main page', 'Navigate to the main page', 'Go back to the main page' ,'Return to the start page', 'Visit the start page', 'Navigate to the start page', 'Go back to the start page', 'Return to the front page', 'Visit the front page', 'Navigate to the front page', 'Go back to the front page', p => {
+  p.play('Going to home page');
+  p.play({ command: 'Going to home page' });
+});
+
+
+intent('Go back', 'Goback', 'goback', 'go back', 'back', 'previous page','Return', 'Return to previous page', 'Go back to previous page', 'Go to previous page','Backtrack', 'Navigate back', 'Back navigation', 'Previous page navigation','Reverse', 'Reverse direction', 'Reverse navigation', p => {
+  p.play('Going back');
+  p.play({ command: 'Going back'});
+});
+
+intent('Go forward','Goforward','goforward','go forward','forward','next page','Go forward', 'Goforward', 'goforward', 'go forward', 'forward', 'next page','Move ahead', 'Proceed forward', 'Advance', 'Step forward', 'Go ahead', 'Move forward','Navigate forward', 'Go to next page', 'Proceed to next page', 'Advance to next page', 'Move to next page', 'Jump to next page', p => {
+  p.play('Going forward');
+  p.play({ command: 'Going forward'});
+});
+
+intent('Mute yourself', 'mute yourself', 'mute', 'keep quite', 'stop', 'back','Silence', 'Silence yourself', 'Quiet', 'Quiet down', 'Hush', 'Shush','Turn off audio', 'Disable audio', 'Mute audio', 'Mute sound', 'Silence sound', 'Silence audio','Muzzle', 'Gag', 'Hush up', 'Zip it', 'Be quiet', 'Dont speak','Terminate sound', 'Cease sound', 'Halt sound', 'Stop sound', 'Suppress sound', 'Quell sound', p => {
+  p.play('Okay');
+  p.play({ command: 'Mute'});
+});
+
+intent('Reload', 'Reload page', 'Refresh', 'Refresh page', 'Refresh the page', 'Reload this page','Update', 'Update page', 'Renew', 'Renew page', 'Renew the page', 'Refresh content','Recharge', 'Recharge page', 'Replenish', 'Replenish page', 'Replenish the page', 'Reload content','Restart', 'Restart page', 'Restart the page', 'Reload website', 'Reload web page', 'Renew website','Reload tab', 'Reload current tab', 'Refresh tab', 'Refresh current tab', 'Reload this tab', 'Reload tab content', p => {
+  p.play('Reloading the page');
+  p.play({ command: 'Reload'});
+});
+
+intent('logout','log out','sign out','log out me', p => {
+    p.play('Logging out');
+    p.play({ command: 'Logout'});
+});
+
+
+// Home page navigation
+intent('show pricings','go to pricings','go to program','show pricing','pricing','pricings','What are your prices', 'How much does it cost', p => {
+  p.play({ command: 'Pricing' });
+  p.play('We have different packages to fit different budgets and fitness needs. Our Basic Package starts at ₹2000, our Premium Package is priced at ₹2400, and our Diamond Package is priced at ₹4200. You can find more information on our website or by speaking to one of our trainers.');
+});
+
+intent('what are the programs do you offer','what are the program do you offer','program','Programs','go to programs','go to program','programs offered','program offered','show program','show programs','what are the program offered','Tell me about the gym', 'What services do you offer', 'What kind of classes do you have','Use of this website','what will you do', p => {
+    p.play({ command: 'Programs' });
+    p.play('Sure, I can help you with that. If you are looking to work on your fitness, we offer a variety of exercises and workouts including flexing your muscles, cardio exercises, shoulder workouts, and weightlifting. Let me know what you are interested in and will provide more information to help you get started.');
+});
+
+
+// Other page navigation
+intent('flex muscle','flexmuscle','go to flexmuscle','navigate to flex', p => {
+    p.play('Going to flex muscle');
+    p.play({ command: 'Go to flex muscle'});
+});
+
+intent('cardio exercise','cardioexercise','go to cardio exercise', 'some good cardio exercise','cardio','navigate to weight cardio', p => {
+    p.play('Going to cardio exercise');
+    p.play({ command: 'Go to cardio exercise'});
+});
+
+intent('sholder workout','shoulder workouts','shoulderworkouts','go to shoulder workouts','shoulder','navigate to sholder', p => {
+    p.play('Going to shoulder workouts');
+    p.play({ command: 'Go to shoulder workouts'});
+});
+
+intent('weight lifting','dead lifting','lifting','go to weight lifting','navigate to weight lifting', p => {
+    p.play('Going to weight lifting');
+    p.play({ command: 'Go to weight lifting'});
+});
+
+intent('personal trainings','go personal trainings','personal training','go personal training','personal training go','go to personal training','navigate to personal training' , p => {
+    p.play('Going to personal training');
+    p.play({ command: 'Go to personal training'});
+});
+
+
+//video commands
+intent('video stop','stop video','pause','pause video','pause the video','video pause','pass video','bus video','fox video','pause','pass','bus','fox', p => {
+    p.play({ command: 'Pause Video'});
+});
+
+intent('video play','play video','play','play video','pay video', p => {
+    p.play({ command: 'Play Video'});
+});
+
+
+//Sub trainings
+intent('first','open first','open first exercise','open first card', p => {
+    p.play('Opening first card');
+    p.play({ command: 'First Card'});
+});
+
+intent('second','open second','open second exercise','open second card', p => {
+    p.play('Opening second card');
+    p.play({ command: 'Second Card'});
+});
+
+intent('third','open third','open third exercise','open third card', p => {
+    p.play('Opening third card');
+    p.play({ command: 'Third Card'});
+});
+
+intent('fourth','open fourth','open fourth exercise','open fourth card', p => {
+    p.play('Opening fourth card');
+    p.play({ command: 'Fourth Card'});
+});
+
+intent('fifth','open fifth','open fifth exercise','open fifth card','last card','open last card', p => {
+    p.play('Opening fifth card');
+    p.play({ command: 'Fifth Card'});
+});
+
+
+// Other response
+intent('what are the pricings do you offer','what are the pricing do you offer','What kind of classes do you offer', 'What classes are available', p => {
+  p.play('We offer a variety of classes to cater to different fitness levels and interests, including strength training, cardio, yoga, Pilates, and more. You can find more information on our website or by speaking to one of our trainers.');
+});
+
+// Exercise intent
+intent('Can you recommend some exercises?', 'What exercises should I do?', 'I need a workout plan', p => {
+  p.play('Sure, we have many workout plans available to help you reach your fitness goals. Would you like me to suggest some exercises for you now?');
+});
+
+intent('Bye', 'Goodbye', 'See you later','Thank you','hey','hello', p => {
+  p.play('Thank you for visiting our website. Have a great day!');
+});
+
+// FAQ intent
+intent('Can you help me with something?', p => {
+  p.play('Sure, what would you like to know?');
+  
+  intent('What is your cancellation policy?', p => {
+    p.play('We have a 24-hour cancellation policy for all scheduled appointments or classes.');
+  });
+  
+  intent('What equipment do you have?', p => {
+    p.play('We have a wide range of equipment available, including cardio machines, weight machines, free weights, and more. Please see our website or speak to a staff member for more information.');
+  });
+  
+  // Default response
+  intent('I have another question', p => {
+    p.play('Im sorry, I may not have the answer to that question. Please ask another question, or speak to a staff member for more information.');
+  });
+});
+
+// Workout related questions
+intent('What are some good warm-up exercises?', p => {
+  p.play('Some good warm-up exercises include jumping jacks, lunges, high knees, and arm circles. These exercises can help prepare your body for your workout and reduce the risk of injury.');
+});
+
+intent('How long should I rest between sets?', p => {
+  p.play('The amount of rest time between sets can vary depending on the type of exercise and your fitness goals. A general guideline is to rest for 30 to 90 seconds between sets for strength training exercises, and 1 to 2 minutes for compound exercises.');
+});
+
+intent('Whats the best way to cool down after a workout?', p => {
+  p.play('The best way to cool down after a workout is to perform some light cardio, such as walking or cycling, followed by some stretching exercises. This can help reduce muscle soreness and prevent injury.');
+});
+
+intent('How many days a week should I work out?', p => {
+  p.play('The number of days per week you should work out depends on your fitness goals and your current fitness level. A general guideline is to aim for at least 150 minutes of moderate-intensity exercise per week, which could be spread out over 3 to 5 days. However, its important to listen to your body and not overdo it, especially if youre just starting out.');
+});
+
+// Default workout-related response
+intent('I have another workout-related question', p => {
+  p.play('Im sorry, I may not have the answer to that question. Please ask another question, or speak to a personal trainer or fitness professional for more information.');
+});
+
+  // Workout related questions
+  intent('What are some good warm-up exercises?', p => {
+    p.play('Some good warm-up exercises include jumping jacks, lunges, high knees, and arm circles. These exercises can help prepare your body for your workout and reduce the risk of injury.');
+  });
+
+  intent('How long should I rest between sets?', p => {
+    p.play('The amount of rest time between sets can vary depending on the type of exercise and your fitness goals. A general guideline is to rest for 30 to 90 seconds between sets for strength training exercises, and 1 to 2 minutes for compound exercises.');
+  });
+
+  intent('What\'s the best way to cool down after a workout?', p => {
+    p.play('The best way to cool down after a workout is to perform some light cardio, such as walking or cycling, followed by some stretching exercises. This can help reduce muscle soreness and prevent injury.');
+  });
+
+  intent('How many days a week should I work out?', p => {
+    p.play('The number of days per week you should work out depends on your fitness goals and your current fitness level. A general guideline is to aim for at least 150 minutes of moderate-intensity exercise per week, which could be spread out over 3 to 5 days. However, it\'s important to listen to your body and not overdo it, especially if you\'re just starting out.');
+  });
+
+  intent('How long should a cardio workout be?', p => {
+      p.play('The duration of a cardio workout depends on your fitness level and goals. A general guideline is to aim for at least 30 minutes of moderate-intensity exercise per day, or 150 minutes per week.');
+  });
+
+intent('What are some good arm exercises?', p => {
+  p.play('Some good arm exercises include bicep curls, tricep dips, push-ups, and overhead presses.');
+});
+
+intent('How many arm exercises should I do per workout?', p => {
+  p.play('The number of arm exercises you should do per workout depends on your fitness level and goals. A general guideline is to aim for 2-3 exercises for each muscle group (biceps, triceps, and shoulders), and perform 8-12 reps for each exercise.');
+});
+
+intent('How often should I do arm workouts?', p => {
+  p.play('The frequency of your arm workouts depends on your fitness level and goals. For best results, aim to do arm exercises 2-3 times per week, with at least 48 hours of rest between workouts to allow your muscles to recover.');
+});
+
+intent('How can I modify arm exercises to make them more challenging?', p => {
+  p.play('To make arm exercises more challenging, you can increase the weight or resistance, decrease the rest time between sets, perform more reps or sets, or try more advanced variations of the exercises.');
+});
+
+intent('What are some common mistakes to avoid when doing arm exercises?', p => {
+  p.play('Common mistakes to avoid when doing arm exercises include using improper form, using too much weight or resistance, neglecting to warm up properly, and not allowing enough rest time between workouts to allow your muscles to recover.');
+});
+
+intent('Legs Workout','Legs','Workout for Legs','Exercises for Legs', p => {
+  p.play('Some good exercises for a legs workout include squats, lunges, calf raises, leg press, and leg curls. These exercises can help strengthen the muscles in your legs and improve lower body strength.');
+});
+
+
+intent('Biceps Workout','Biceps','Workout for Biceps','Exercises for Biceps', p => {
+  p.play('Some good exercises for a biceps workout include bicep curls, hammer curls, chin-ups, and pull-ups. These exercises can help build strength and size in your biceps when done with proper form and gradually increasing resistance.');
+});
+
+
+intent('Triceps Workout','Triceps','Workout for Triceps','Exercises for Triceps', p => {
+  p.play('Some good exercises for a triceps workout include tricep dips, tricep extensions, close-grip bench press, and pushdowns. These exercises can help build strength and size in your triceps when done with proper form and gradually increasing resistance.');
+});
+
+intent('Chest Workout','Chest','Workout for Chest','Exercises for Chest', p => {
+  p.play('Some good exercises for a chest workout include bench press, push-ups, dumbbell flys, and cable crossovers. These exercises can help build strength and size in your chest muscles when done with proper form and gradually increasing resistance.');
+});
+
+intent(  'Abs Workout','Abs','Workout for Abs','Exercises for Abs', p => {
+  p.play('Some good exercises for an abs workout include crunches, planks, leg raises, Russian twists, and bicycle crunches. These exercises can help build strength and definition in your abdominal muscles when done with proper form and gradually increasing resistance.');
+});
+
+intent('Full Body Workout',  'Full Body',  'Workout for Full Body',  'Exercises for Full Body', p => {
+  p.play('Some good exercises for a full body workout include squats, deadlifts, lunges, push-ups, pull-ups, and planks. These exercises can help target multiple muscle groups and improve overall strength and fitness.');
+});
+
+intent('Back Workout','Back','Workout for Back','Exercises for Back', p => {
+  p.play('Some good exercises for a back workout include pull-ups, chin-ups, rows, lat pulldowns, and deadlifts. These exercises can help build strength and size in your back muscles when done with proper form and gradually increasing resistance.');
+});
+
+intent('Shoulder Workout','Shoulders','Workout for Shoulders','Exercises for Shoulders', p => {
+  p.play('Some good exercises for a shoulder workout include overhead presses, lateral raises, front raises, and reverse flyes. These exercises can help build strength and size in your shoulder muscles when done with proper form and gradually increasing resistance.');
+});
+
+intent('How much does a gym membership cost?', p => {
+  p.play('Gym membership costs vary depending on the gym and location. Some gyms offer monthly memberships for around $30-$50 per month, while others may charge more for access to additional amenities such as classes or personal training sessions. It\'s best to check with the specific gym you\'re interested in for their pricing information.');
+});
+
+intent('Where is the nearest gym?','Gym location','Where can I find a gym?', p => {
+  p.play('You can find gyms in your area by using online search engines, fitness apps, or asking for recommendations from friends or family members. Most gyms also have websites where you can find their locations and hours of operation.');
+});
+
+intent('What are some good workout routines?', p => {
+  p.play('Some good workout routines include full body workouts, split routines, and circuit training. Full body workouts involve exercises that target all major muscle groups, while split routines involve dividing workouts into specific muscle groups to focus on each area individually. Circuit training involves completing a series of exercises in a specific order with little to no rest in between.');
+});
+
+
+intent('What are the best fitness equipment?','Fitness equipment','Recommended fitness equipment', p => {
+  p.play('Some good fitness equipment options include dumbbells, barbells, resistance bands, stability balls, and cardio machines such as treadmills, ellipticals, and stationary bikes. The best equipment for you depends on your fitness goals and personal preferences.');
+});
+
+intent('membership sign up', 'how to sign up for gym membership', 'how to join gym', p => {
+  p.play('You can sign up for a gym membership by visiting our gym in person, or by filling out the membership form on our website. Our staff will be happy to assist you with the process and answer any questions you may have.');
+});
+
+intent('types of gym memberships', 'membership options', 'membership levels', 'gym membership categories', p => {
+  p.play('We offer different types of gym memberships to fit your needs and budget, including monthly, quarterly, and annual memberships. We also offer special memberships for students, seniors, and families.');
+});
+
+intent('membership benefits', 'benefits of joining gym', 'why join a gym', p => {
+  p.play('Joining a gym can have numerous benefits, such as improving your physical fitness, reducing stress, and boosting your energy levels. You also have access to state-of-the-art equipment, personal training services, and a supportive community of like-minded individuals who can help you stay motivated and on track.');
+});
+
+intent('gym hours', 'hours of operation', 'hours of gym', 'weekend hours', 'weekday hours', p => {
+  p.play('Our gym is open 24/7 for your convenience, so you can work out whenever it fits your schedule best. Our staff is available during regular business hours to assist you with any questions or concerns you may have.');
+});
+
+intent('membership discounts', 'discounted gym memberships', 'special offers', 'promotions', p => {
+  p.play('We offer various discounts and promotions throughout the year, so be sure to check our website or contact our membership team for the latest offerings. We also offer discounts for corporate memberships and referrals.');
+});
+
+intent('membership cancellation', 'cancelling gym membership', 'ending membership', 'termination of membership', p => {
+  p.play('If you need to cancel your gym membership, please refer to our cancellation policy on our website or contact our membership team for more information. We require a notice period of at least 30 days before the next billing cycle.');
+});
+
+intent('membership sign up', 'how to sign up for gym membership', 'how to join gym', p => {
+  p.play('You can sign up for a gym membership by visiting our gym in person, or by filling out the membership form on our website. Our staff will be happy to assist you with the process and answer any questions you may have.');
+});
+
+intent('types of gym memberships', 'membership options', 'membership levels', 'gym membership categories', p => {
+  p.play('We offer different types of gym memberships to fit your needs and budget, including monthly, quarterly, and annual memberships. We also offer special memberships for students, seniors, and families.');
+});
+
+intent('membership benefits', 'benefits of joining gym', 'why join a gym', p => {
+  p.play('Joining a gym can have numerous benefits, such as improving your physical fitness, reducing stress, and boosting your energy levels. You also have access to state-of-the-art equipment, personal training services, and a supportive community of like-minded individuals who can help you stay motivated and on track.');
+});
+
+intent('gym hours', 'hours of operation', 'hours of gym', 'weekend hours', 'weekday hours', p => {
+  p.play('Our gym is open 24/7 for your convenience, so you can work out whenever it fits your schedule best. Our staff is available during regular business hours to assist you with any questions or concerns you may have.');
+});
+
+intent('membership discounts', 'discounted gym memberships', 'special offers', 'promotions', p => {
+  p.play('We offer various discounts and promotions throughout the year, so be sure to check our website or contact our membership team for the latest offerings. We also offer discounts for corporate memberships and referrals.');
+});
+
+intent('membership cancellation', 'cancelling gym membership', 'ending membership', 'termination of membership', p => {
+  p.play('If you need to cancel your gym membership, please refer to our cancellation policy on our website or contact our membership team for more information. We require a notice period of at least 30 days before the next billing cycle.');
+});

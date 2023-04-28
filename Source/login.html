@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/alphardex/aqua.css@master/dist/aqua.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <title>Fitness Hub | Login</title>
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets\img\favicon.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <span id="F">F</span>
+      <span id="I">I</span>
+      <span id="T">T</span>
+      <span id="U">-</span>
+      <span id="H">H</span>
+      <span id="U">U</span>
+      <span id="B">B</span>
+    </div>
+    <div class="bdy">
+      <div class="login">
+        <form onsubmit="login()" class="login-form" id="loginForm">
+          <h1>Login</h1>
+          <center>
+            <small><span id="error" style="color: red"></span></small>
+          </center>
+          <div class="form-input-material">
+            <input
+              type="email"
+              name="username"
+              id="email"
+              placeholder=" "
+              class="form-control-material"
+            />
+            <label for="username">Email</label>
+          </div>
+          <div class="form-input-material">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder=" "
+              autocomplete="off"
+              class="form-control-material"
+            />
+            <label for="password">Password</label>
+          </div>
+          <button
+            type="button"
+            onclick="forgotPass()"
+            class="forgot"
+            style="
+              z-index: 1;
+              background: transparent;
+              color: aqua;
+              border: 0px;
+              cursor: pointer;
+            "
+          >
+            forgot password
+          </button>
+
+          <a
+            ><button id="mybut" type="submit" class="btn btn-primary btn-ghost">
+              Login
+            </button></a
+          >
+          <a href="signup.html"
+            ><button id="mybut" type="button" class="btn btn-primary btn-ghost">
+              Signup
+            </button></a
+          >
+        </form>
+      </div>
+
+      <div class="frm">
+        <div class="phtloader" id="phtloader">
+          <img src="assets/img/home-img.png" alt="icon" srcset="" />
+        </div>
+      </div>
+    </div>
+    <!-- <script src="slideshow.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+
+    <script src="login-auth.js"></script>
+    <script src="firebase.js"></script>
+  </body>
+</html>

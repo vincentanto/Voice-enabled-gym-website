@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Fitness Hub | Workouts</title>        
+  <link rel="stylesheet" href="assets\css\workout.css">     
+  <!--=============== FAVICON ===============-->
+  <link
+    rel="shortcut icon"
+    href="assets\img\favicon.png"
+    type="image/x-icon"
+  />
+   <style>
+    .back-btn {
+      position: absolute;
+      top: 30px;
+      left: 40px;
+      color: rgb(255, 255, 255);
+      background: transparent;
+      font-weight: bolder;
+      cursor: pointer;
+      z-index: 1;
+    }
+  </style>
+  <script>
+    window.addEventListener('load', rpause);
+    const vidSrc=["https://www.youtube.com/embed/P0DVZ6EyBH4?rel=0&autoplay=1&loop=1&controls=0&playlist=P0DVZ6EyBH4",
+                  "https://www.youtube.com/embed/caHZK9bLwgw?rel=0&autoplay=1&loop=1&controls=0&playlist=caHZK9bLwgw",
+                "https://www.youtube.com/embed/Zi2j4bDEliA?rel=0&autoplay=1&loop=1&controls=0&playlist=Zi2j4bDEliA",
+              "https://www.youtube.com/embed/anGnzFEMhKE?rel=0&autoplay=1&loop=1&controls=0&playlist=anGnzFEMhKE",
+            "https://www.youtube.com/embed/hhHJF3muNgc?rel=0&autoplay=1&loop=1&controls=0&playlist=hhHJF3muNgc",
+          "https://www.youtube.com/embed/vhW-K9Y7680?rel=0&autoplay=1&loop=1&controls=0&playlist=vhW-K9Y7680",
+        "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+      "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+    "https://www.youtube.com/embed/46dY421Rg8E?rel=0&autoplay=1&loop=1&controls=0&playlist=46dY421Rg8E",
+  "https://www.youtube.com/embed/qkGcco-Lceo?rel=0&autoplay=1&loop=1&controls=0&playlist=qkGcco-Lceo",
+  "https://www.youtube.com/embed/P0DVZ6EyBH4?rel=0&autoplay=1&loop=1&controls=0&playlist=P0DVZ6EyBH4",
+                  "https://www.youtube.com/embed/caHZK9bLwgw?rel=0&autoplay=1&loop=1&controls=0&playlist=caHZK9bLwgw",
+                "https://www.youtube.com/embed/Zi2j4bDEliA?rel=0&autoplay=1&loop=1&controls=0&playlist=Zi2j4bDEliA",
+              "https://www.youtube.com/embed/anGnzFEMhKE?rel=0&autoplay=1&loop=1&controls=0&playlist=anGnzFEMhKE",
+            "https://www.youtube.com/embed/hhHJF3muNgc?rel=0&autoplay=1&loop=1&controls=0&playlist=hhHJF3muNgc",
+          "https://www.youtube.com/embed/vhW-K9Y7680?rel=0&autoplay=1&loop=1&controls=0&playlist=vhW-K9Y7680",
+        "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+      "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+    "https://www.youtube.com/embed/46dY421Rg8E?rel=0&autoplay=1&loop=1&controls=0&playlist=46dY421Rg8E",
+  "https://www.youtube.com/embed/qkGcco-Lceo?rel=0&autoplay=1&loop=1&controls=0&playlist=qkGcco-Lceo",
+  "https://www.youtube.com/embed/P0DVZ6EyBH4?rel=0&autoplay=1&loop=1&controls=0&playlist=P0DVZ6EyBH4",
+                  "https://www.youtube.com/embed/caHZK9bLwgw?rel=0&autoplay=1&loop=1&controls=0&playlist=caHZK9bLwgw",
+                "https://www.youtube.com/embed/Zi2j4bDEliA?rel=0&autoplay=1&loop=1&controls=0&playlist=Zi2j4bDEliA",
+              "https://www.youtube.com/embed/anGnzFEMhKE?rel=0&autoplay=1&loop=1&controls=0&playlist=anGnzFEMhKE",
+            "https://www.youtube.com/embed/hhHJF3muNgc?rel=0&autoplay=1&loop=1&controls=0&playlist=hhHJF3muNgc",
+          "https://www.youtube.com/embed/vhW-K9Y7680?rel=0&autoplay=1&loop=1&controls=0&playlist=vhW-K9Y7680",
+        "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+      "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+    "https://www.youtube.com/embed/46dY421Rg8E?rel=0&autoplay=1&loop=1&controls=0&playlist=46dY421Rg8E",
+  "https://www.youtube.com/embed/qkGcco-Lceo?rel=0&autoplay=1&loop=1&controls=0&playlist=qkGcco-Lceo",
+  "https://www.youtube.com/embed/P0DVZ6EyBH4?rel=0&autoplay=1&loop=1&controls=0&playlist=P0DVZ6EyBH4",
+                  "https://www.youtube.com/embed/caHZK9bLwgw?rel=0&autoplay=1&loop=1&controls=0&playlist=caHZK9bLwgw",
+                "https://www.youtube.com/embed/Zi2j4bDEliA?rel=0&autoplay=1&loop=1&controls=0&playlist=Zi2j4bDEliA",
+              "https://www.youtube.com/embed/anGnzFEMhKE?rel=0&autoplay=1&loop=1&controls=0&playlist=anGnzFEMhKE",
+            "https://www.youtube.com/embed/hhHJF3muNgc?rel=0&autoplay=1&loop=1&controls=0&playlist=hhHJF3muNgc",
+          "https://www.youtube.com/embed/vhW-K9Y7680?rel=0&autoplay=1&loop=1&controls=0&playlist=vhW-K9Y7680",
+        "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+      "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+    "https://www.youtube.com/embed/46dY421Rg8E?rel=0&autoplay=1&loop=1&controls=0&playlist=46dY421Rg8E",
+  "https://www.youtube.com/embed/qkGcco-Lceo?rel=0&autoplay=1&loop=1&controls=0&playlist=qkGcco-Lceo",
+  "https://www.youtube.com/embed/P0DVZ6EyBH4?rel=0&autoplay=1&loop=1&controls=0&playlist=P0DVZ6EyBH4",
+                  "https://www.youtube.com/embed/caHZK9bLwgw?rel=0&autoplay=1&loop=1&controls=0&playlist=caHZK9bLwgw",
+                "https://www.youtube.com/embed/Zi2j4bDEliA?rel=0&autoplay=1&loop=1&controls=0&playlist=Zi2j4bDEliA",
+              "https://www.youtube.com/embed/anGnzFEMhKE?rel=0&autoplay=1&loop=1&controls=0&playlist=anGnzFEMhKE",
+            "https://www.youtube.com/embed/hhHJF3muNgc?rel=0&autoplay=1&loop=1&controls=0&playlist=hhHJF3muNgc",
+          "https://www.youtube.com/embed/vhW-K9Y7680?rel=0&autoplay=1&loop=1&controls=0&playlist=vhW-K9Y7680",
+        "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+      "https://www.youtube.com/embed/bx_ZpRNxm_8?rel=0&autoplay=1&loop=1&controls=0&playlist=bx_ZpRNxm_8",
+    "https://www.youtube.com/embed/46dY421Rg8E?rel=0&autoplay=1&loop=1&controls=0&playlist=46dY421Rg8E",
+  "https://www.youtube.com/embed/qkGcco-Lceo?rel=0&autoplay=1&loop=1&controls=0&playlist=qkGcco-Lceo",
+];
+
+                 
+                  window.addEventListener('load', function() {
+                    
+                    document.getElementById('h').innerHTML=localStorage.getItem('head');
+                    var v=parseInt(localStorage.getItem('wrkNo'));
+                    document.getElementById('frame1').src=vidSrc[v];
+                    document.getElementById('frame2').src=vidSrc[v+1];
+                  
+                  })
+                  function rpause(){
+                     document.getElementById('frame1').pause();
+                  }
+                  function rplay(){
+                    document.getElementById('frame2').play();
+                 }
+  </script>
+
+
+<!-- partial:index.partial.html -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <button class="back-btn" onclick="window.history.back()">
+    <i class="fa fa-arrow-left"></i> Back
+  </button>
+  <center><h1 id="h"></h1></center>
+  <div class="container">
+    <div class="card">
+      <div class="content">
+        <iframe width="560" id="frame1" height="315" src="" frameborder="0" allow=" autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen >
+        </iframe>
+      </div>
+    </ul>
+    </div>
+    <div class="card" >
+      <div class="content" >
+        <iframe width="560" id="frame2" height="315" src="" frameborder="0" allow=" autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen >
+        </iframe>
+      </div>
+      
+    </ul>
+    </div>
+  </div>
+    <!-- Alan AI starts -->
+    <div class="alan-btn"></div>
+    <script
+      type="text/javascript"
+      src="https://studio.alan.app/web/lib/alan_lib.min.js"
+    ></script>
+    <script src="alanAI/alanAI.js" type="text/javascript"></script>
+    <!-- Alan AI ends -->
+</body>
+</html>
