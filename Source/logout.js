@@ -11,11 +11,11 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-firebase.auth().onAuthStateChanged((user) => {
-  if (!user) {
-    location.replace("login.html");
-  }
-});
+// firebase.auth().onAuthStateChanged((user) => {
+//   if (!user) {
+//     location.replace("login.html");
+//   }
+// });
 
 function logout() {
     firebase.auth().signOut();
